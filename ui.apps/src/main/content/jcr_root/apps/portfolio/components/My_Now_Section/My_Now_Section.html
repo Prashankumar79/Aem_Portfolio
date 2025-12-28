@@ -1,0 +1,134 @@
+<!--/*
+    Now Section Component
+    
+    Layout (with dividers):
+    1. Profile Summary + CV Download
+    2. Skills (categories with colorful pill tags)
+    3. Experience (Accordion)
+    4. Projects
+*/-->
+<sly data-sly-use.model="com.adobe.aem.portfolio.core.models.NowSectionModel" />
+
+<section class="now-section">
+    <!-- Section Title -->
+    <h1 class="now-section__title">${model.sectionTitle}</h1>
+
+    <!-- Profile Summary Section -->
+    <div class="now-section__profile now-section__divider">
+        <sly data-sly-test="${model.hasProfileSummary}">
+            <p class="now-section__summary">${model.profileSummary}</p>
+        </sly>
+
+        <!-- CV Download -->
+        <sly data-sly-test="${model.hasCvLink}">
+            <a href="${model.cvLink}" class="now-section__cv-button" target="_blank" rel="noopener">
+                <svg class="now-section__cv-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                ${model.cvLinkText}
+            </a>
+        </sly>
+    </div>
+
+    <!-- Skills Section (Categories with Colorful Pills) -->
+    <sly data-sly-test="${model.hasSkillCategories}">
+        <div class="now-section__skills now-section__divider">
+            <h2 class="now-section__subtitle">Technologies</h2>
+            <div class="skills-categories">
+                <sly data-sly-list.cat="${model.skillCategories}">
+                    <div class="skill-category">
+                        <span class="skill-category__name">${cat.categoryName}</span>
+                        <span class="skill-category__separator">—</span>
+                        <div class="skill-category__pills">
+                            <sly data-sly-list.skill="${cat.skills}">
+                                <span class="skill-pill">${skill}</span>
+                            </sly>
+                        </div>
+                    </div>
+                </sly>
+            </div>
+        </div>
+    </sly>
+
+    <!-- Experience Section (Accordion) -->
+    <sly data-sly-test="${model.hasExperiences}">
+        <div class="now-section__block now-section__divider">
+            <h2 class="now-section__subtitle">${model.experienceTitle}</h2>
+            <div class="now-section__experiences" id="experienceAccordion">
+                <sly data-sly-list.exp="${model.experiences}">
+                    <article class="experience-card" data-accordion-item>
+                        <!-- Compact Header (always visible) -->
+                        <button class="experience-card__header" type="button" aria-expanded="false"
+                            data-accordion-trigger>
+                            <div class="experience-card__header-content">
+                                <div class="experience-card__main">
+                                    <h3 class="experience-card__company">${exp.company}</h3>
+                                    <p class="experience-card__role">${exp.role}</p>
+                                </div>
+                                <span class="experience-card__timeline">${exp.timeline}</span>
+                            </div>
+                            <span class="experience-card__toggle" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </span>
+                        </button>
+
+                        <!-- Expandable Content (hidden by default) -->
+                        <div class="experience-card__content" data-accordion-content hidden>
+                            <sly data-sly-test="${exp.description}">
+                                <p class="experience-card__description">${exp.description}</p>
+                            </sly>
+
+                            <!-- Technologies/Skills as beautiful tags -->
+                            <sly data-sly-test="${exp.hasTechnologies}">
+                                <div class="experience-card__tech-section">
+                                    <span class="experience-card__tech-label">Technologies</span>
+                                    <div class="experience-card__tech-tags">
+                                        <sly data-sly-list.tech="${exp.technologies}">
+                                            <span class="tech-tag">${tech}</span>
+                                        </sly>
+                                    </div>
+                                </div>
+                            </sly>
+                        </div>
+                    </article>
+                </sly>
+            </div>
+        </div>
+    </sly>
+
+    <!-- Projects Section -->
+    <sly data-sly-test="${model.hasProjects}">
+        <div class="now-section__block">
+            <h2 class="now-section__subtitle">${model.projectsTitle}</h2>
+            <div class="now-section__projects">
+                <sly data-sly-list.proj="${model.projects}">
+                    <article class="project-card">
+                        <div class="project-card__header">
+                            <sly data-sly-test="${proj.hasLink}">
+                                <a href="${proj.link}" class="project-card__title" target="_blank" rel="noopener">
+                                    ${proj.title}
+                                    <span class="project-card__link-icon">↗</span>
+                                </a>
+                            </sly>
+                            <sly data-sly-test="${!proj.hasLink}">
+                                <h3 class="project-card__title">${proj.title}</h3>
+                            </sly>
+                        </div>
+                        <sly data-sly-test="${proj.description}">
+                            <p class="project-card__description">${proj.description}</p>
+                        </sly>
+                        <sly data-sly-test="${proj.techStack}">
+                            <p class="project-card__tech">${proj.techStack}</p>
+                        </sly>
+                    </article>
+                </sly>
+            </div>
+        </div>
+    </sly>
+</section>

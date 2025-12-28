@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Now Section"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <!-- Profile Tab (First) -->
+                    <profile
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Profile"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <sectionTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Page Title"
+                                                name="./sectionTitle"
+                                                emptyText="Now"/>
+                                            <profileSummary
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldLabel="Profile Summary"
+                                                fieldDescription="Brief introduction about yourself"
+                                                name="./profileSummary"
+                                                rows="{Long}4"
+                                                emptyText="I am a Full Stack Developer with 3+ years of experience..."/>
+                                            <cvLink
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="CV/Resume File"
+                                                name="./cvLink"
+                                                rootPath="/content/dam"/>
+                                            <cvLinkText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Download Button Text"
+                                                name="./cvLinkText"
+                                                emptyText="Download CV"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </profile>
+
+                    <!-- Skills Tab -->
+                    <skills
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Skills"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <skillCategories
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Skill Categories">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./skillCategories">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <categoryName
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Category Name"
+                                            name="./categoryName"
+                                            required="{Boolean}true"
+                                            emptyText="e.g., CMS, Frontend, Backend, Tools"/>
+                                        <skills
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Skills (comma-separated)"
+                                            fieldDescription="Enter skills separated by commas"
+                                            name="./skills"
+                                            emptyText="e.g., AEM 6.5, AEMaaCS, HTL, React"/>
+                                    </items>
+                                </field>
+                            </skillCategories>
+                        </items>
+                    </skills>
+
+                    <!-- Section Titles Tab -->
+                    <titles
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Section Titles"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <experienceTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Experience Section Title"
+                                                name="./experienceTitle"
+                                                emptyText="Experience"/>
+                                            <projectsTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Projects Section Title"
+                                                name="./projectsTitle"
+                                                emptyText="Projects"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </titles>
+
+                    <!-- Experience Tab -->
+                    <experience
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Experience"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <experiences
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Experience Entries">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./experiences">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <company
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Company Name"
+                                            name="./company"
+                                            required="{Boolean}true"/>
+                                        <role
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Role/Position"
+                                            name="./role"
+                                            required="{Boolean}true"/>
+                                        <startDate
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Start Date"
+                                            name="./startDate"
+                                            emptyText="e.g., Jan 2023"/>
+                                        <endDate
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="End Date"
+                                            name="./endDate"
+                                            emptyText="e.g., Dec 2024"/>
+                                        <current
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                            fieldLabel="Current Position"
+                                            name="./current"
+                                            text="I currently work here"/>
+                                        <description
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                            fieldLabel="Brief Description"
+                                            name="./description"
+                                            emptyText="Short summary of the role"/>
+                                        <technologies
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Technologies / Skills"
+                                            fieldDescription="Comma-separated list of skills (e.g., Java, AEM, React, AWS)"
+                                            name="./technologies"
+                                            emptyText="e.g., Java, AEM, React, Spring Boot, AWS"/>
+                                    </items>
+                                </field>
+                            </experiences>
+                        </items>
+                    </experience>
+
+                    <!-- Projects Tab -->
+                    <projects
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Projects"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <projectsList
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Project Entries">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./projects">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <title
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Project Title"
+                                            name="./title"
+                                            required="{Boolean}true"/>
+                                        <description
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                            fieldLabel="Description"
+                                            name="./description"/>
+                                        <techStack
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Tech Stack"
+                                            name="./techStack"
+                                            emptyText="e.g., React, Node.js, MongoDB"/>
+                                        <link
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Project Link"
+                                            name="./link"
+                                            emptyText="https://"/>
+                                    </items>
+                                </field>
+                            </projectsList>
+                        </items>
+                    </projects>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
+

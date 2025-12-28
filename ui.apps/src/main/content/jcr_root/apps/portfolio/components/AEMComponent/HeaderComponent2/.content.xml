@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:description="Header component that overlays Core Navigation component with custom branding"
     jcr:primaryType="cq:Component"
-    jcr:title="Quick Search"
-    sling:resourceSuperType="core/wcm/components/search/v2/search"
+    jcr:title="Header Component 2"
+    sling:resourceSuperType="core/wcm/components/navigation/v2/navigation"
     componentGroup="Portfolio - Content"/>

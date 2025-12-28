@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Header Component Dialog"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <logoImage
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Logo Image"
+                name="./logoImage"/>
+            <homePageTitle
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Home Page Title"
+                name="./homePageTitle"/>
+            <homePageUrl
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Home Page Url"
+                name="./homePageUrl"/>
+            <aboutUsTitle
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="About Us Title"
+                name="./aboutUsTitle"/>
+            <aboutUsUrl
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="About Us Url"
+                name="./aboutUsUrl"/>
+            <signupTitle
+                jcr:primaryType="nt:unstructured"
+                fieldLabel="Signup Title"
+                name="./signupTitle"/>
+            <signupUrl
+                jcr:primaryType="nt:unstructured"
+                fieldLabel="Signup Url"
+                name="./signupUrl"/>
+            <loginTitle
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Login Title"
+                name="./loginTitle"/>
+            <loginUrl
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Login url"
+                name="./loginUrl"/>
+            <aboutUsNavigation
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                composite="{Boolean}true"
+                fieldLabel="About Us Sub Navigation">
+                <field
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                    name="./aboutUsNavigation">
+                    <items jcr:primaryType="nt:unstructured">
+                        <aboutUsNavTitle
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Navigation Title"
+                            name="./aboutUsNavTitle"/>
+                        <aboutUsSubNavUrl
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Navigation URL"
+                            name="./aboutUsSubNavUrl"/>
+                    </items>
+                </field>
+            </aboutUsNavigation>
+        </items>
+    </content>
+</jcr:root>

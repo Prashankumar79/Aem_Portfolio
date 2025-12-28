@@ -1,0 +1,193 @@
+/**
+ * Writing Section Component Styles
+ * 
+ * Features:
+ * - List layout for 1-4 articles (full cards)
+ * - Grid layout for 5+ articles (compact mode)
+ * - Article cards with hover effects
+ * - Platform badges
+ * - Dark/Light theme support
+ */
+
+/* Section Container */
+.writing-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.writing-section__title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text, #f0f0f0);
+}
+
+.writing-section__description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted, #a0a0a0);
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* Articles Container - Base */
+.writing-section__articles {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* List Layout (1-4 articles) - Full width cards */
+.writing-section__articles--list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Grid Layout (5+ articles) - Compact grid */
+.writing-section__articles--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+/* Article Card - Base */
+.article-card {
+    background: var(--color-card-bg, rgba(255, 255, 255, 0.03));
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #333);
+    padding: 1.25rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.article-card:hover {
+    border-color: var(--color-accent, #3b82f6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid mode - smaller cards */
+.writing-section__articles--grid .article-card {
+    padding: 1rem 1.25rem;
+}
+
+.article-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.article-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Platform Badge */
+.article-card__platform {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 4px;
+}
+
+/* Grid mode - smaller badge */
+.writing-section__articles--grid .article-card__platform {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
+}
+
+.article-card__date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #666);
+}
+
+.writing-section__articles--grid .article-card__date {
+    font-size: 0.75rem;
+}
+
+/* Article Title */
+.article-card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text, #f0f0f0);
+    margin: 0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+}
+
+/* Grid mode - smaller title */
+.writing-section__articles--grid .article-card__title {
+    font-size: 0.95rem;
+}
+
+a.article-card__title:hover {
+    color: var(--color-accent, #3b82f6);
+}
+
+.article-card__arrow {
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.2s ease;
+}
+
+a.article-card__title:hover .article-card__arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.article-card__description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-muted, #888);
+    margin: 0.25rem 0 0 0;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] .writing-section__title,
+[data-theme="light"] .article-card__title {
+    color: var(--color-text, #1a1a1a);
+}
+
+[data-theme="light"] .article-card {
+    background: var(--color-card-bg, rgba(0, 0, 0, 0.02));
+    border-color: var(--color-border, #e0e0e0);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .writing-section {
+        padding: 2rem 1rem;
+    }
+
+    .writing-section__title {
+        font-size: 1.5rem;
+    }
+
+    .article-card {
+        padding: 1rem 1.25rem;
+    }
+
+    .article-card__title {
+        font-size: 1rem;
+    }
+
+    /* Single column on mobile for grid mode */
+    .writing-section__articles--grid {
+        grid-template-columns: 1fr;
+    }
+}

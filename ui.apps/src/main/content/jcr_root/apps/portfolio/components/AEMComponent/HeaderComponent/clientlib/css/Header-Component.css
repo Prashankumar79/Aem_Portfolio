@@ -1,0 +1,218 @@
+/* ============================================
+   Header Component Styles
+   Premium Navigation with Modern Design
+   ============================================ */
+
+/* CSS Custom Properties for easy theming */
+:root {
+    --header-gradient-start: #4e54c8;
+    --header-gradient-end: #8f94fb;
+    --header-text-color: #ffffff;
+    --header-hover-bg: rgba(255, 255, 255, 0.18);
+    --header-hover-text: #222222;
+    --header-shadow: 0 4px 20px rgba(78, 84, 200, 0.3);
+    --header-border-radius: 16px;
+    --header-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Main Navigation Container */
+.header-nav {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--header-gradient-start) 0%, var(--header-gradient-end) 100%);
+    padding: 18px 40px;
+    border-radius: var(--header-border-radius);
+    box-shadow: var(--header-shadow);
+    gap: 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle animated background effect */
+.header-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(50%);
+    }
+}
+
+/* Logo Styles */
+.header-logo {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: var(--header-transition);
+    position: relative;
+    z-index: 1;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Navigation Links */
+.header-link {
+    color: var(--header-text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: var(--header-transition);
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+}
+
+.header-link::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 2px;
+    background: var(--header-text-color);
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.header-link:hover {
+    background: var(--header-hover-bg);
+    color: var(--header-text-color);
+    transform: translateY(-2px);
+}
+
+.header-link:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.header-link:active {
+    transform: translateY(0);
+}
+
+/* Sub Navigation Container */
+.header-subnav {
+    display: flex;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.header-subnav .header-link {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-subnav .header-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Actions Container (Login/Signup) */
+.header-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Signup Button - Primary CTA */
+.header-actions .header-link:first-child {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-actions .header-link:first-child:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Login Button - Secondary CTA */
+.header-actions .header-link:last-child {
+    background: var(--header-text-color);
+    color: var(--header-gradient-start);
+    font-weight: 600;
+}
+
+.header-actions .header-link:last-child:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header-actions .header-link:last-child::after {
+    display: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .header-nav {
+        padding: 14px 24px;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header-logo {
+        margin-right: 16px;
+    }
+
+    .header-actions {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-nav {
+        flex-direction: column;
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .header-logo {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    .header-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-subnav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+}

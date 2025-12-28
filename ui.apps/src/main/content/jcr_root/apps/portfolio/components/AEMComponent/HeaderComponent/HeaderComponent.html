@@ -1,0 +1,21 @@
+<div data-sly-use.headerValue="com.adobe.aem.portfolio.core.models.HeaderComponentModel" class="header-component">
+  <nav class="header-nav">
+    <img class="header-logo"
+      src="${headerValue.logoImage ? headerValue.logoImage : '/apps/portfolio/components/AEMComponent/HeaderComponent/clientlib/resources/logo.png'}"
+      alt="Logo" />
+    <a class="header-link" href="${headerValue.homePageUrl}">${headerValue.homePageTitle}</a>
+    <a class="header-link" href="${headerValue.aboutUsUrl}">${headerValue.aboutUsTitle}</a>
+
+    <!-- Sub-navigation if present -->
+    <div class="header-subnav" data-sly-test="${headerValue.aboutUsNavigation}">
+      <sly data-sly-list.subNavValues="${headerValue.aboutUsNavigation}">
+        <a class="header-link" href="${subNavValues.aboutUsSubNavUrl}">${subNavValues.aboutUsNavTitle}</a>
+      </sly>
+    </div>
+
+    <div class="header-actions">
+      <a class="header-link" href="${headerValue.signupUrl}">${headerValue.signupTitle}</a>
+      <a class="header-link" href="${headerValue.loginUrl}">${headerValue.loginTitle}</a>
+    </div>
+  </nav>
+</div>

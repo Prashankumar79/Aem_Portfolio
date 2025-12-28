@@ -1,0 +1,48 @@
+<!--/*
+    Writing Section Component
+    
+    Displays blog articles/writing portfolio with links
+    - List layout for 1-4 articles
+    - Grid layout for 5+ articles (compact mode)
+*/-->
+<sly data-sly-use.model="com.adobe.aem.portfolio.core.models.WritingSectionModel" />
+
+<section class="writing-section">
+    <!-- Section Title -->
+    <h2 class="writing-section__title">${model.sectionTitle}</h2>
+
+    <!-- Section Description -->
+    <sly data-sly-test="${model.hasSectionDescription}">
+        <p class="writing-section__description">${model.sectionDescription}</p>
+    </sly>
+
+    <!-- Articles List/Grid (adaptive based on count) -->
+    <sly data-sly-test="${model.hasArticles}">
+        <div class="writing-section__articles ${model.layoutClass}">
+            <sly data-sly-list.article="${model.articles}">
+                <article class="article-card">
+                    <div class="article-card__content">
+                        <div class="article-card__header">
+                            <span class="article-card__platform">${article.platform}</span>
+                            <sly data-sly-test="${article.publishDate}">
+                                <span class="article-card__date">${article.publishDate}</span>
+                            </sly>
+                        </div>
+                        <sly data-sly-test="${article.hasLink}">
+                            <a href="${article.link}" class="article-card__title" target="_blank" rel="noopener">
+                                ${article.title}
+                                <span class="article-card__arrow">→</span>
+                            </a>
+                        </sly>
+                        <sly data-sly-test="${!article.hasLink}">
+                            <h3 class="article-card__title">${article.title}</h3>
+                        </sly>
+                        <sly data-sly-test="${article.hasDescription && !model.isCompactMode}">
+                            <p class="article-card__description">${article.description}</p>
+                        </sly>
+                    </div>
+                </article>
+            </sly>
+        </div>
+    </sly>
+</section>

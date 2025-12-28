@@ -1,0 +1,492 @@
+/**
+ * Now Section Component Styles
+ * 
+ * Features:
+ * - Accordion-style experience cards (click to expand)
+ * - Beautiful technology/skill tags
+ * - Projects grid
+ * - CV download button
+ * - Dark/Light theme support
+ */
+
+/* Section Container */
+.now-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.now-section__title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--color-text, #f0f0f0);
+}
+
+.now-section__block {
+    margin-bottom: 3rem;
+}
+
+.now-section__subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text-muted, #a0a0a0);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border, #333);
+}
+
+/* Profile Section */
+.now-section__profile {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border, #333);
+}
+
+.now-section__summary {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-muted, #b0b0b0);
+    margin: 0 0 1.5rem 0;
+    max-width: 650px;
+}
+
+/* CV Button in Profile Section */
+.now-section__cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: transparent;
+    color: var(--color-accent, #3b82f6);
+    text-decoration: none;
+    border: 1px solid var(--color-accent, #3b82f6);
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.now-section__cv-button:hover {
+    background: var(--color-accent, #3b82f6);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.now-section__cv-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Skills Section - Categories with Colorful Pills */
+.now-section__skills {
+    margin-bottom: 2.5rem;
+}
+
+.skills-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.skill-category {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.skill-category__name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text, #e0e0e0);
+    min-width: 80px;
+}
+
+.skill-category__separator {
+    color: var(--color-text-muted, #666);
+    margin: 0 0.25rem;
+}
+
+.skill-category__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Colorful Skill Pill Buttons */
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    border: 1.5px solid;
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+/* Color variations - rotating through 6 colors */
+.skill-pill:nth-child(6n+1) {
+    color: #60a5fa;
+    border-color: #3b82f6;
+}
+
+.skill-pill:nth-child(6n+2) {
+    color: #4ade80;
+    border-color: #22c55e;
+}
+
+.skill-pill:nth-child(6n+3) {
+    color: #f59e0b;
+    border-color: #d97706;
+}
+
+.skill-pill:nth-child(6n+4) {
+    color: #2dd4bf;
+    border-color: #14b8a6;
+}
+
+.skill-pill:nth-child(6n+5) {
+    color: #a78bfa;
+    border-color: #8b5cf6;
+}
+
+.skill-pill:nth-child(6n) {
+    color: #f472b6;
+    border-color: #ec4899;
+}
+
+.skill-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Experience Cards - Accordion Style */
+.now-section__experiences {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.experience-card {
+    background: var(--color-card-bg, rgba(255, 255, 255, 0.03));
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #333);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.experience-card:hover {
+    border-color: var(--color-accent, #3b82f6);
+}
+
+/* Accordion Header (clickable) */
+.experience-card__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+    font-family: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.experience-card__header:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.experience-card__header:focus {
+    outline: 2px solid var(--color-accent, #3b82f6);
+    outline-offset: -2px;
+}
+
+.experience-card__header-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.experience-card__main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.experience-card__company {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text, #f0f0f0);
+    margin: 0;
+}
+
+.experience-card__role {
+    font-size: 0.875rem;
+    color: var(--color-accent, #3b82f6);
+    margin: 0;
+    font-weight: 500;
+}
+
+.experience-card__timeline {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #888);
+    white-space: nowrap;
+}
+
+/* Toggle Icon */
+.experience-card__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 1rem;
+    color: var(--color-text-muted, #888);
+    transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.experience-card__header[aria-expanded="true"] .experience-card__toggle {
+    transform: rotate(180deg);
+    color: var(--color-accent, #3b82f6);
+}
+
+/* Expandable Content */
+.experience-card__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 1.25rem;
+    border-top: 1px solid transparent;
+}
+
+.experience-card__content:not([hidden]) {
+    max-height: 500px;
+    padding: 1rem 1.25rem;
+    border-top-color: var(--color-border, #333);
+}
+
+.experience-card__description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted, #a0a0a0);
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+}
+
+/* Technology/Skills Tags Section */
+.experience-card__tech-section {
+    margin-top: 0.75rem;
+}
+
+.experience-card__tech-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted, #666);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.experience-card__tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Beautiful Tech Tags/Pills */
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-accent, #3b82f6);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 9999px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Alternate tag colors for variety */
+.tech-tag:nth-child(3n+2) {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.tech-tag:nth-child(3n+2):hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.5);
+}
+
+.tech-tag:nth-child(3n) {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.tech-tag:nth-child(3n):hover {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.5);
+}
+
+/* Project Cards */
+.now-section__projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    padding: 1.25rem;
+    background: var(--color-card-bg, rgba(255, 255, 255, 0.03));
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #333);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+    border-color: var(--color-accent, #3b82f6);
+    transform: translateY(-2px);
+}
+
+.project-card__header {
+    margin-bottom: 0.75rem;
+}
+
+.project-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text, #f0f0f0);
+    margin: 0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+a.project-card__title:hover {
+    color: var(--color-accent, #3b82f6);
+}
+
+.project-card__link-icon {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+a.project-card__title:hover .project-card__link-icon {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+.project-card__description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted, #a0a0a0);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.5;
+}
+
+.project-card__tech {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #666);
+    margin: 0;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* CV Download Button */
+.now-section__cv {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.now-section__cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: var(--color-accent, #3b82f6);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.now-section__cv-button:hover {
+    background: var(--color-accent-hover, #2563eb);
+    transform: translateY(-1px);
+}
+
+.now-section__cv-icon {
+    font-size: 1.1rem;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] .now-section__title,
+[data-theme="light"] .experience-card__company,
+[data-theme="light"] .project-card__title {
+    color: var(--color-text, #1a1a1a);
+}
+
+[data-theme="light"] .experience-card,
+[data-theme="light"] .project-card {
+    background: var(--color-card-bg, rgba(0, 0, 0, 0.02));
+    border-color: var(--color-border, #e0e0e0);
+}
+
+[data-theme="light"] .tech-tag {
+    background: rgba(59, 130, 246, 0.08);
+}
+
+[data-theme="light"] .tech-tag:nth-child(3n+2) {
+    background: rgba(16, 185, 129, 0.08);
+}
+
+[data-theme="light"] .tech-tag:nth-child(3n) {
+    background: rgba(245, 158, 11, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .now-section {
+        padding: 2rem 1rem;
+    }
+
+    .now-section__title {
+        font-size: 1.5rem;
+    }
+
+    .experience-card__header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .now-section__projects {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-tag {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
