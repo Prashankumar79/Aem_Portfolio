@@ -14,7 +14,18 @@
     limitations under the License.
 */-->
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
-    <sly data-sly-call="${clientlib.css @ categories='portfolio.base'}"/>
+    <sly data-sly-call="${clientlib.css @ categories='portfolio.base'}" />
+    <sly data-sly-call="${clientlib.css @ categories='portfolio.header'}" />
+    <sly data-sly-call="${clientlib.css @ categories='portfolio.now'}" />
+    <sly data-sly-call="${clientlib.css @ categories='portfolio.writing'}" />
+    <sly data-sly-call="${clientlib.css @ categories='portfolio.footer'}" />
+    <sly data-sly-call="${clientlib.css @ categories='Header-Componet-Clientlib'}" />
 </sly>
 
-<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
+
+    <sly data-sly-call="${clientlib.css @ categories='CustomAEMProject.custom'}" />
+</sly>
+
+
+<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}" />

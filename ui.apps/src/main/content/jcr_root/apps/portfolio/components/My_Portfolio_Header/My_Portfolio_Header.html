@@ -1,0 +1,39 @@
+<!--/*
+    Portfolio Header Component - Single Page Design
+    
+    Features:
+    - Logo from DAM
+    - Glowing subtitle
+    - Section anchor links (Now, Writing, Contact)
+*/-->
+<sly data-sly-use.model="com.adobe.aem.portfolio.core.models.PortfolioHeaderModel" />
+
+<header class="portfolio-header" data-cmp-is="portfolio-header">
+    <!-- Brand Section -->
+    <div class="portfolio-header__brand">
+        <!-- Logo -->
+        <sly data-sly-test="${model.hasLogo}">
+            <img src="${model.logoImage}" alt="Logo" class="portfolio-header__logo" />
+        </sly>
+
+        <!-- Glowing Subtitle -->
+        <sly data-sly-test="${model.hasSubtitle}">
+            <span class="portfolio-header__subtitle portfolio-header__subtitle--glow">${model.subtitle}</span>
+        </sly>
+    </div>
+
+    <!-- Section Navigation (Anchor Links) -->
+    <nav class="portfolio-header__nav" aria-label="Page sections">
+        <ul class="portfolio-header__nav-list">
+            <li class="portfolio-header__nav-item">
+                <a href="#now" class="portfolio-header__nav-link">Now</a>
+            </li>
+            <li class="portfolio-header__nav-item">
+                <a href="#writing" class="portfolio-header__nav-link">Writing</a>
+            </li>
+            <li class="portfolio-header__nav-item">
+                <a href="#contact" class="portfolio-header__nav-link">Contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>

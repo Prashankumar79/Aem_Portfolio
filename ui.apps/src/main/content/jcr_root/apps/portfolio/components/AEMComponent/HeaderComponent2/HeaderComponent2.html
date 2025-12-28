@@ -1,0 +1,46 @@
+<!--/*
+    Header Component 2 - WKND Style Header
+    
+    Layout:
+    [Hamburger Menu] [Logo] ... [Navigation Items] [Search]
+    
+    Uses Core Navigation component for navigation items.
+*/-->
+<sly data-sly-use.header="com.adobe.aem.portfolio.core.models.HeaderComponent2Model" />
+
+<header class="cmp-header2">
+    <div class="cmp-header2__container">
+
+        <!--/* Mobile Menu Toggle */-->
+        <button class="cmp-header2__menu-toggle" aria-expanded="false" aria-label="Open navigation">
+            <span class="cmp-header2__menu-icon"></span>
+        </button>
+
+        <!--/* Logo */-->
+        <a href="${header.logoLink @ context='uri'}" class="cmp-header2__logo">
+            <sly data-sly-test="${header.logoImage}">
+                <img src="${header.logoImage @ context='uri'}" alt="${header.logoAltText}" />
+            </sly>
+            <sly data-sly-test="${!header.logoImage}">
+                <span class="cmp-header2__logo-text">${header.logoText || 'LOGO'}</span>
+            </sly>
+        </a>
+
+        <!--/* Navigation - Core Navigation Component */-->
+        <nav class="cmp-header2__nav" id="header2-nav">
+            <sly data-sly-resource="${'navigation' @ resourceType='core/wcm/components/navigation/v2/navigation'}" />
+        </nav>
+
+        <!--/* Search */-->
+        <div class="cmp-header2__search">
+            <button class="cmp-header2__search-toggle" aria-label="Search">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2" />
+                    <path d="M16 16l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+            <input type="search" class="cmp-header2__search-input" placeholder="SEARCH" aria-label="Search" />
+        </div>
+
+    </div>
+</header>

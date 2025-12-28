@@ -1,0 +1,195 @@
+/**
+ * Portfolio Footer Component Styles
+ * 
+ * Features:
+ * - Beautiful social link icons with hover effects
+ * - Platform-specific colors on hover
+ * - Decorative gradient divider
+ * - Centered minimal design
+ * - Dark/Light theme support
+ */
+
+/* Footer Container */
+.portfolio-footer {
+    padding: 3rem 1.5rem;
+    margin-top: 4rem;
+    background: var(--color-bg-footer, rgba(0, 0, 0, 0.2));
+}
+
+.portfolio-footer__container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Tagline */
+.portfolio-footer__tagline {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text, #f0f0f0);
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 0.02em;
+}
+
+/* Social Links Container */
+.portfolio-footer__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* Individual Social Link */
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-muted, #888);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.social-link:hover svg {
+    transform: scale(1.1);
+}
+
+/* Platform-specific hover colors */
+.social-link--github:hover {
+    background: #333;
+    border-color: #333;
+    color: #fff;
+}
+
+.social-link--linkedin:hover {
+    background: #0077b5;
+    border-color: #0077b5;
+    color: #fff;
+}
+
+.social-link--email:hover {
+    background: #ea4335;
+    border-color: #ea4335;
+    color: #fff;
+}
+
+.social-link--medium:hover {
+    background: #00ab6c;
+    border-color: #00ab6c;
+    color: #fff;
+}
+
+.social-link--twitter:hover {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+/* Decorative Divider */
+.portfolio-footer__divider {
+    width: 80px;
+    height: 2px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-accent, #3b82f6) 30%,
+            var(--color-accent, #3b82f6) 70%,
+            transparent);
+    border-radius: 2px;
+}
+
+/* Copyright */
+.portfolio-footer__copyright {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #666);
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+/* Light Theme */
+[data-theme="light"] .portfolio-footer {
+    background: var(--color-bg-footer, rgba(0, 0, 0, 0.03));
+}
+
+[data-theme="light"] .portfolio-footer__tagline {
+    color: var(--color-text, #1a1a1a);
+}
+
+[data-theme="light"] .social-link {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .portfolio-footer {
+        padding: 2rem 1rem;
+    }
+
+    .portfolio-footer__social {
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 44px;
+        height: 44px;
+    }
+
+    .social-link svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Animation on page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio-footer__social .social-link {
+    animation: fadeInUp 0.5s ease-out backwards;
+}
+
+.portfolio-footer__social .social-link:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.portfolio-footer__social .social-link:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.portfolio-footer__social .social-link:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.portfolio-footer__social .social-link:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.portfolio-footer__social .social-link:nth-child(5) {
+    animation-delay: 0.3s;
+}

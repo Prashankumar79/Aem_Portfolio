@@ -1,0 +1,181 @@
+/**
+ * Portfolio Header Component Styles
+ * Single-page design with logo, glowing subtitle, and section anchors
+ * Dark theme only
+ */
+
+/* CSS Variables - Dark Theme Only */
+:root {
+    --header-bg: rgba(18, 18, 18, 0.95);
+    --header-text: #f5f5f5;
+    --header-text-muted: #a0a0a0;
+    --header-link: #f5f5f5;
+    --header-link-hover: #66b3ff;
+    --header-border: rgba(255, 255, 255, 0.08);
+    --glow-color: #60a5fa;
+}
+
+/* Main Header Container */
+.portfolio-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--header-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Brand Section */
+.portfolio-header__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+/* Logo Image */
+.portfolio-header__logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-header__logo:hover {
+    transform: scale(1.05);
+}
+
+/* Glowing Subtitle */
+.portfolio-header__subtitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--header-text-muted);
+}
+
+.portfolio-header__subtitle--glow {
+    color: var(--glow-color);
+    text-shadow:
+        0 0 5px var(--glow-color),
+        0 0 10px var(--glow-color),
+        0 0 20px rgba(96, 165, 250, 0.4),
+        0 0 40px rgba(96, 165, 250, 0.2);
+    animation: subtitleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes subtitleGlow {
+    from {
+        text-shadow:
+            0 0 5px var(--glow-color),
+            0 0 10px var(--glow-color),
+            0 0 20px rgba(96, 165, 250, 0.4),
+            0 0 40px rgba(96, 165, 250, 0.2);
+    }
+
+    to {
+        text-shadow:
+            0 0 10px var(--glow-color),
+            0 0 20px var(--glow-color),
+            0 0 30px rgba(96, 165, 250, 0.6),
+            0 0 50px rgba(96, 165, 250, 0.3);
+    }
+}
+
+/* Navigation Section */
+.portfolio-header__nav {
+    display: flex;
+    align-items: center;
+}
+
+.portfolio-header__nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio-header__nav-item {
+    margin: 0;
+}
+
+.portfolio-header__nav-link {
+    color: var(--header-link);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.portfolio-header__nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--glow-color);
+    box-shadow: 0 0 8px var(--glow-color);
+    transition: width 0.3s ease;
+}
+
+.portfolio-header__nav-link:hover {
+    color: var(--glow-color);
+}
+
+.portfolio-header__nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .portfolio-header {
+        padding: 1rem 1.25rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .portfolio-header__brand {
+        flex: 1;
+    }
+
+    .portfolio-header__logo {
+        height: 40px;
+    }
+
+    .portfolio-header__subtitle--glow {
+        font-size: 0.8rem;
+    }
+
+    .portfolio-header__nav-list {
+        gap: 1.25rem;
+    }
+
+    .portfolio-header__nav-link {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .portfolio-header__nav {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .portfolio-header__nav-list {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+}

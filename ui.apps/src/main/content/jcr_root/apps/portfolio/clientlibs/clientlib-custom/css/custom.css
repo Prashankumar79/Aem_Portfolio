@@ -1,0 +1,99 @@
+/* ============================================
+   Custom Clientlib - Embed Test Styles
+   Category: CustomAEMProject.custom
+   ============================================ */
+
+/* Test Banner - Proves clientlib is loaded */
+.custom-test-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+    margin: 20px;
+}
+
+.custom-test-banner h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.custom-test-banner p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Utility Classes for Testing */
+.custom-highlight {
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+.custom-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Animated Button */
+.custom-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.custom-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Glow Effect */
+.custom-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #667eea, 0 0 20px #667eea;
+    }
+
+    to {
+        box-shadow: 0 0 20px #764ba2, 0 0 30px #764ba2;
+    }
+}
+
+/* Status indicator - shows clientlib is working */
+body::after {
+    content: '✓ CustomAEMProject.custom clientlib loaded';
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #10b981;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-family: monospace;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+}

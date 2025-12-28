@@ -1,0 +1,39 @@
+/**
+ * Global Theme Styles - Dark Theme Only
+ */
+
+/* Base CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Dark Theme Variables */
+:root {
+    --color-bg: #0f0f0f;
+    --color-bg-secondary: #1a1a1a;
+    --color-text: #f0f0f0;
+    --color-text-muted: #888;
+    --color-border: #333;
+    --color-card-bg: rgba(255, 255, 255, 0.03);
+    --color-accent: #3b82f6;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: #f0f0f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    min-height: 100vh;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
